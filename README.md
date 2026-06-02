@@ -1,17 +1,28 @@
 # Global Superstore Profitability Analysis
+Retail profitability analysis identifying why high-sales regions lose money — using correlation analysis, residual-based market classification, and regression modeling on 9,994 transactions across 531 cities.
 
-Retail profitability analysis identifying why high sales regions lose money, using discount pattern analysis, regional benchmarking, and regression modeling on 9,994 transactions across 531 cities.
+# Overview
+This project investigates why certain high-sales regions and cities consistently lose money. Using the Global Superstore dataset, the goal was to move beyond surface-level sales metrics, identify the pricing and operational failures driving negative margins, and build a data-driven framework for fixing underperformers and identifying expansion targets.
 
-## Overview
-This project analyzes retail profitability patterns using the Global Superstore dataset, focusing on why certain high-sales regions and cities consistently lose money. The goal was to move beyond surface-level sales metrics and identify execution and pricing issues driving negative margins, while also exploring how data can support smarter expansion decisions.
-## Dataset
-9,994 transactions across 531 cities and 49 states. Despite strong demand, over 100 cities and 10 states operate at negative profit. Major markets like Texas ($170K in sales, −$25K profit) and Philadelphia ($109K in sales, −$13.8K profit) highlight that demand exists, but execution is broken.
-## Key Findings
-Correlation analysis showed that discounting has near-zero impact on sales (r ≈ −0.02) but a clear negative impact on profit (r ≈ −0.22), especially in the Central and South regions. The West region stood out as a benchmark, generating over $700K in sales and $100K+ in profit with minimal discounting and consistent performance.
-Category level analysis revealed that Technology and Office Supplies drive the strongest margins, while Furniture underperforms across regions, particularly in Central markets.
-## Methodology
-A linear regression model using sales, discount, and quantity helped identify cities underperforming relative to expected profit, further reinforcing that operational efficiency matters more than sales volume.
-## Tools
+# Dataset
+9,994 transactions across 531 cities, 49 states, 3 product categories, and 4 regions.
+
+# Key Findings
+### Discounting destroys margin without driving sales:
+Discounts have near-zero correlation with sales (r ≈ −0.02) but a clear negative correlation with profit (r ≈ −0.22). Central and South regions were aggressively discounting expecting more volume — but the data shows discounts don't move sales at all. Despite strong demand, 116 cities and 10 states operate at negative profit — Texas generates $170K in sales but loses $25K in profit. The demand exists. The execution is broken.
+### West region as the benchmark:
+West generated $725K in sales and $108K in profit with the lowest average discount of any region. Profitability comes from pricing discipline, not chasing volume.
+### Residual analysis classified two types of underperformers:
+A regression model predicting profit from sales, discount, and quantity was used diagnostically. Residuals separated fixable markets (Texas, Ohio — bad fundamentals, discount reduction will help) from structural exit candidates (Wyoming, West Virginia — underperforming even after accounting for fundamentals). The same analysis identified Minneapolis as a high-efficiency expansion target with a residual of +$505 per order.
+### Furniture is structurally broken:
+Furniture carries a residual of −$34 per order even after accounting for pricing and volume — meaning the problem isn't discounting alone. Technology and Office Supplies consistently outperform expectations.
+
+# Methodology
+
+EDA: regional, state, city, and category-level breakdowns with correlation analysis
+Visualization: bar charts surfacing discount patterns and regional performance gaps
+Regression modeling on 70/30 split; residuals used as a market classification tool
+
+
+# Tools
 Python, Pandas, Matplotlib, Seaborn, Scikit-learn
-## Key Focus Areas
-Profitability analysis, discount strategy, regional performance, operational efficiency, data-driven market strategy
