@@ -19,8 +19,10 @@ Furniture carries a residual of −$34 per order even after accounting for prici
 
 # Methodology
 
-EDA: regional, state, city, and category-level breakdowns with correlation analysis
-Visualization: bar charts surfacing discount patterns and regional performance gaps
+EDA:regional, state, city, and category-level breakdowns with correlation analysis  
+
+Visualization: bar charts surfacing discount patterns and regional performance gaps  
+
 Regression modeling on 70/30 split; residuals used as a market classification tool
 
 
